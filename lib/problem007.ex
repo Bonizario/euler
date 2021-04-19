@@ -1,5 +1,4 @@
 defmodule Problem007 do
-  require Float
   @moduledoc """
   Problem 7 - 10001st prime
 
@@ -7,28 +6,31 @@ defmodule Problem007 do
   we can see that the 6th prime is 13. What is the 10001st prime number?
   """
 
+  require Float
+
+  @spec is_prime?(integer()) :: boolean()
   def is_prime?(n) when n <= 1, do: false
+
   def is_prime?(n) when n in [2, 3], do: true
+
   def is_prime?(n) do
-    sqrt_n = :math.sqrt(n)
-      |> Float.floor
+    sqrt_n =
+      :math.sqrt(n)
+      |> Float.floor()
       |> round
+
     !Enum.any?(2..sqrt_n, &(rem(n, &1) == 0))
   end
 
-  def next_prime(n) do
+  defp next_prime(n) do
     n = n + 1
-
-    if is_prime?(n) do
-      n
-    else
-      next_prime(n)
-    end
+    if is_prime?(n), do: n, else: next_prime(n)
   end
 
+  @spec get_nth_prime(pos_integer()) :: pos_integer()
   def get_nth_prime(n \\ 10001) do
-    Stream.iterate(2, &(next_prime(&1)))
-      |> Enum.take(n)
-      |> List.last
+    Stream.iterate(2, &next_prime(&1))
+    |> Enum.take(n)
+    |> List.last()
   end
 end

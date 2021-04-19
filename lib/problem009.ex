@@ -12,7 +12,7 @@ defmodule Problem009 do
     a * a + b * b == c * c
   end
 
-  def find_triplet() do
+  defp find_triplet() do
     for a <- 1..1000,
         b <- a..1000,
         c = 1000 - a - b,
@@ -22,7 +22,9 @@ defmodule Problem009 do
     |> List.first()
   end
 
+  @spec sum_triplet() :: pos_integer()
   def sum_triplet(), do: find_triplet() |> Enum.reduce(&+/2)
 
+  @spec get_triplet_product() :: pos_integer()
   def get_triplet_product(), do: find_triplet() |> Enum.reduce(&*/2)
 end

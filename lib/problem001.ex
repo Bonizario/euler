@@ -12,13 +12,14 @@ defmodule Problem001 do
   Ela retorna o último acumulador.
   """
 
-  def sum_multiples_of_three_and_five do
-    Enum.reduce 1..999, 0, fn(x, total) ->
+  @spec sum_multiples_of_three_and_five() :: pos_integer()
+  def sum_multiples_of_three_and_five() do
+    Enum.reduce(1..999, 0, fn x, total ->
       if rem(x, 3) == 0 or rem(x, 5) == 0 do
         x + total
       else
         total
       end
-    end
+    end)
   end
 end

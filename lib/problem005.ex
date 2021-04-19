@@ -1,5 +1,4 @@
 defmodule Problem005 do
-  require Integer
   @moduledoc """
   Problem 5 - Smallest multiple
 
@@ -7,7 +6,10 @@ defmodule Problem005 do
   of the numbers from 1 to 20?
   """
 
+  require Integer
+
+  @spec smallest_multiple() :: pos_integer()
   def smallest_multiple() do
-    Enum.reduce(1..20, fn(a, b) -> div(a * b, Integer.gcd(a, b)) end)
+    Enum.reduce(1..20, fn a, b -> div(a * b, Integer.gcd(a, b)) end)
   end
 end

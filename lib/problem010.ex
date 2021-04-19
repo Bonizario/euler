@@ -1,5 +1,4 @@
 defmodule Problem010 do
-  import Problem007
   @moduledoc """
   Problem 10 - Summation of primes
 
@@ -7,14 +6,12 @@ defmodule Problem010 do
   Find the sum of all the primes below two million.
   """
 
-  # Reusing is_prime?/1 function from module Problem007
+  import Problem007, only: [is_prime?: 1]
+
+  @spec sum_prime_numbers() :: pos_integer()
   def sum_prime_numbers() do
-    Enum.reduce(2..1999999, 0, fn(x, acc) ->
-      if is_prime?(x) do
-        x + acc
-      else
-        acc
-      end
+    Enum.reduce(2..1_999_999, 0, fn x, acc ->
+      if is_prime?(x), do: x + acc, else: acc
     end)
   end
 end

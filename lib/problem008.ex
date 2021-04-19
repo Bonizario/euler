@@ -6,6 +6,7 @@ defmodule Problem008 do
   the greatest product. What is the value of this product?
   """
 
+  @spec largest_product() :: pos_integer()
   def largest_product() do
     "73167176531330624919225119674426574742355349194934
     96983520312774506326239578318016984801869478851843
@@ -28,10 +29,10 @@ defmodule Problem008 do
     05886116467109405077541002256983155200055935729725
     71636269561882670428252483600823257530420752963450"
     |> String.codepoints() # transform string in a list of code points encoded as strings
-    |> Enum.filter(&String.trim(&1) != "")
+    |> Enum.filter(&(String.trim(&1) != ""))
     |> Enum.map(&String.to_integer/1) # see: function capture notation
     |> Enum.chunk_every(13, 1, []) # list of lists (13 elements, step=1)
-    |> Enum.map(fn(sub_seq_13) -> Enum.reduce(sub_seq_13, &*/2) end) # guard &*/2
-    |> Enum.max
+    |> Enum.map(fn sub_seq_13 -> Enum.reduce(sub_seq_13, &*/2) end) # guard &*/2
+    |> Enum.max()
   end
 end

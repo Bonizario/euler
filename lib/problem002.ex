@@ -1,5 +1,4 @@
 defmodule Problem002 do
-  require Integer
   @moduledoc """
   Problem 2 - Even Fibonacci numbers
 
@@ -11,16 +10,21 @@ defmodule Problem002 do
   de cada iteração e possuem complexidade exponencial O(2^n).
   """
 
+  require Integer
+
   defp tail_recursive_fib(n), do: tail_recursive_fib(n, 0, 1, [])
+
   defp tail_recursive_fib(0, _current, _next, fib_list) do
     Enum.reverse(fib_list)
   end
+
   defp tail_recursive_fib(n, current, next, fib_list) do
     tail_recursive_fib(n - 1, next, current + next, [current | fib_list])
   end
 
+  @spec sum_even_fibonacci_numbers() :: non_neg_integer()
   def sum_even_fibonacci_numbers() do
-    numbers = tail_recursive_fib(34) # bellow 4 million
-    Enum.sum for n <- numbers, Integer.is_even(n), do: n
+    numbers = tail_recursive_fib(34)
+    Enum.sum(for n <- numbers, Integer.is_even(n), do: n)
   end
 end
