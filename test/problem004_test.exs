@@ -1,10 +1,7 @@
 defmodule Problem004Test do
-  use ExUnit.Case
-  doctest Problem004
+  use ExUnit.Case, async: true
 
-  describe "Problem004.largest_palindrome_product" do
-    test "It should return 906609" do
-      assert Problem004.largest_palindrome_product() === 906609
-    end
+  test "largest_palindrome_product/0 returns 906609" do
+    assert Problem004.largest_palindrome_product() === 906_609
   end
 end

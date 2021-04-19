@@ -1,10 +1,7 @@
 defmodule Problem010Test do
-  use ExUnit.Case
-  doctest Problem010
+  use ExUnit.Case, async: true
 
-  describe "Problem010.sum_prime_numbers" do
-    test "It should return 142913828922" do
-      assert Problem010.sum_prime_numbers() === 142913828922
-    end
+  test "sum_prime_numbers returns 142913828922" do
+    assert Problem010.sum_prime_numbers() === 142_913_828_922
   end
 end

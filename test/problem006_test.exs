@@ -1,10 +1,7 @@
 defmodule Problem006Test do
-  use ExUnit.Case
-  doctest Problem006
+  use ExUnit.Case, async: true
 
-  describe "Problem006.sum_square_difference" do
-    test "It should return 25164150" do
-      assert Problem006.sum_square_difference() === 25164150
-    end
+  test "sum_square_difference returns 25164150" do
+    assert Problem006.sum_square_difference() === 25_164_150
   end
 end

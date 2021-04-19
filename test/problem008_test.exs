@@ -1,10 +1,7 @@
 defmodule Problem008Test do
-  use ExUnit.Case
-  doctest Problem008
+  use ExUnit.Case, async: true
 
-  describe "Problem008.largest_product" do
-    test "It should return 23514624000" do
-      assert Problem008.largest_product() === 23514624000
-    end
+  test "largest_product returns 23514624000" do
+    assert Problem008.largest_product() === 23_514_624_000
   end
 end

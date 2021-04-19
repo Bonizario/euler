@@ -1,10 +1,7 @@
 defmodule Problem007Test do
-  use ExUnit.Case
-  doctest Problem007
+  use ExUnit.Case, async: true
 
-  describe "Problem007.get_nth_prime" do
-    test "It should return 104743" do
-      assert Problem007.get_nth_prime() === 104743
-    end
+  test "get_nth_prime/1 returns 104743" do
+    assert Problem007.get_nth_prime() === 104_743
   end
 end

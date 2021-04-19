@@ -1,16 +1,11 @@
 defmodule Problem009Test do
-  use ExUnit.Case
-  doctest Problem009
+  use ExUnit.Case, async: true
 
-  describe "Problem009.sum_triplet" do
-    test "It should return 1000" do
-      assert Problem009.sum_triplet() === 1000
-    end
+  test "sum_triplet returns 1000" do
+    assert Problem009.sum_triplet() === 1000
   end
 
-  describe "Problem009.get_triplet_product" do
-    test "It should return 31875000" do
-      assert Problem009.get_triplet_product() === 31875000
-    end
+  test "get_triplet_product returns 31875000" do
+    assert Problem009.get_triplet_product() === 31_875_000
   end
 end

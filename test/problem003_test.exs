@@ -1,10 +1,7 @@
 defmodule Problem003Test do
-  use ExUnit.Case
-  doctest Problem003
+  use ExUnit.Case, async: true
 
-  describe "Problem003.largest_prime_factor" do
-    test "It should return 6857" do
-      assert Problem003.largest_prime_factor() === 6857
-    end
+  test "largest_prime_factor/0 returns 6857" do
+    assert Problem003.largest_prime_factor() === 6857
   end
 end
